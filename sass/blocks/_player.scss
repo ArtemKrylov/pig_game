@@ -1,0 +1,46 @@
+.player {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20% 10%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem;
+
+  .player_name {
+    margin-bottom: 2em;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 100%;
+  }
+  .player_resultScore {
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 100%;
+    color: $accent-color;
+  }
+  .player_currentRollScreen {
+    height: 6em;
+    width: 12em;
+    line-height: calc(6em / 2);
+    border-radius: 1rem;
+
+    font-weight: bold;
+    background-color: $accent-color-blurred;
+    color: white;
+    .text {
+      font-size: 0.75em;
+    }
+    .currentScore {
+      font-size: 1.75em;
+    }
+  }
+}
+
+.activePlayer {
+  background-color: rgba(255, 255, 255, 0.6);
+  .player_currentRollScreen {
+    background-color: $accent-color;
+  }
+}

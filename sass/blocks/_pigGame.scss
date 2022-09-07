@@ -1,0 +1,29 @@
+.pigGame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 2%;
+  box-shadow: 2px 2px 15px 10px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid: "player player" 1fr;
+
+  .newGameBtn,
+  .holdBtn,
+  .rollDiceBtn {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .newGameBtn {
+    top: 10%;
+  }
+  .rollDiceBtn {
+    top: 70%;
+  }
+  .holdBtn {
+    top: 80%;
+  }
+}

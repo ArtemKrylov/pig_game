@@ -13,13 +13,15 @@ const playThePigGame = function () {
   const diceDisplayDots = document.querySelectorAll(".diceDisplay_dot");
   let players = document.querySelectorAll(".player");
   let playerNames = document.querySelectorAll(".player_name");
+  const winnerTables = document.querySelectorAll(".winner_table");
   let activePlayerIndex = 0;
   let playerResultScores = [0, 0];
   let playerCurrentScores = [0, 0];
-  const winScore = 100;
+  const winScore = 10;
 
   //Event listeners
 
+  //Roll the dice
   rollDiceBtn.addEventListener("click", () => {
     showDiceDisplay();
     const diceRollResult = rollDice();
@@ -28,7 +30,7 @@ const playThePigGame = function () {
     console.log("Active player index: ", activePlayerIndex);
     console.log("Dice rolled: ", diceRollResult);
     if (diceRollResult === 1) {
-      zeroScores(activePlayerIndex);
+      zeroCurrentScore(activePlayerIndex);
       changePlayer();
     } else {
       playerCurrentScores[activePlayerIndex] += diceRollResult;
@@ -37,7 +39,9 @@ const playThePigGame = function () {
     }
   });
 
+  //Start a new game
   newGameBtn.addEventListener("click", () => {
+    hideWinner();
     setPlayerNames();
     showButtons();
     console.log("New Game");
@@ -48,14 +52,16 @@ const playThePigGame = function () {
     }
   });
 
+  //Hold the score - add current score to result score
   holdBtn.addEventListener("click", () => {
     playerResultScores[activePlayerIndex] +=
       playerCurrentScores[activePlayerIndex];
     resultScores[activePlayerIndex].textContent =
       playerResultScores[activePlayerIndex];
     zeroCurrentScore(activePlayerIndex);
+    //WIN
     if (playerResultScores[activePlayerIndex] >= winScore) {
-      winTheGame();
+      winTheGame(activePlayerIndex);
       return;
     }
     changePlayer();
@@ -162,10 +168,31 @@ const playThePigGame = function () {
     });
   }
 
-  function winTheGame() {
+  function winTheGame(activePlayerIndex) {
+    console.log("win start");
+    showWinnerTable(activePlayerIndex);
+    console.log("win end");
+    players[activePlayerIndex].classList.add("winner");
     hideButtons();
     hideDiceDisplay();
-    playerNames[activePlayerIndex].textContent = `WINNER!`;
+  }
+
+  function hideWinner() {
+    players.forEach((player) => {
+      if (player.classList.contains("winner")) {
+        player.classList.remove("winner");
+      }
+    });
+    winnerTables.forEach((table) => {
+      if (!table.classList.contains("hidden")) {
+        table.classList.add("hidden");
+      }
+    });
+  }
+
+  function showWinnerTable(activePlayerIndex) {
+    console.log("show winner table");
+    winnerTables[activePlayerIndex].classList.remove("hidden");
   }
 };
 

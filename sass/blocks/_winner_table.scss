@@ -1,0 +1,15 @@
+.winner_table {
+  position: absolute;
+  top: 2rem;
+  color: $win-color;
+  font-weight: bold;
+}
+
+.first_table {
+  left: 25%;
+  transform: translateX(-50%);
+}
+.second_table {
+  right: 25%;
+  transform: translateX(50%);
+}

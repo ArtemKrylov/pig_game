@@ -151,10 +151,12 @@ body {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.4);
   font-size: 1.5rem;
+  transition: all 0.5s ease-out;
 }
 .player .player_name {
+  position: relative;
   margin-bottom: 2em;
-  font-size: 1.5em;
+  font-size: 2.5rem;
   font-weight: bold;
   line-height: 100%;
 }
@@ -187,11 +189,25 @@ body {
   background-color: rgb(252, 37, 103);
 }
 
+.winner {
+  color: rgb(127, 109, 10);
+}
+
 .btn {
   background-color: #fff;
   font-size: 1.5rem;
   padding: 1rem;
   border-radius: 30%;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  box-shadow: 0px 0px 5px rgb(252, 37, 103);
+  color: rgb(252, 37, 103);
+}
+.btn:active {
+  margin-top: -1.2rem;
+  box-shadow: 0px 0px 8px rgb(252, 37, 103);
+  font-weight: bold;
 }
 
 .diceDisplay {
@@ -201,6 +217,7 @@ body {
   transform: translate(-50%, 0);
   width: 10rem;
   height: 10rem;
+  border-radius: 5px;
   padding: 1rem;
   display: grid;
   align-items: center;
@@ -208,6 +225,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   background-color: #fff;
+  transition: all 0.5s ease-out;
 }
 .diceDisplay .diceDisplay_dot {
   width: 2rem;
@@ -219,4 +237,21 @@ body {
 .diceDisplay .diceDisplay_dot:nth-child(1), .diceDisplay .diceDisplay_dot:nth-child(6) {
   grid-column: 1/span 2;
   transform: translate(-70%, 0);
+}
+
+.winner_table {
+  position: absolute;
+  top: 2rem;
+  color: rgb(127, 109, 10);
+  font-weight: bold;
+}
+
+.first_table {
+  left: 25%;
+  transform: translateX(-50%);
+}
+
+.second_table {
+  right: 25%;
+  transform: translateX(50%);
 }/*# sourceMappingURL=main.css.map */

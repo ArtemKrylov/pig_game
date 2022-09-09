@@ -13,7 +13,7 @@
     <article class="game_container">
       <div class="pigGame">
         <button class="btn newGameBtn">NEW GAME</button>
-        <div class="diceDisplay">
+        <div class="diceDisplay hidden">
           <div class="diceDisplay_dot"></div>
           <div class="diceDisplay_dot"></div>
           <div class="diceDisplay_dot"></div>
@@ -26,7 +26,11 @@
         <button class="btn holdBtn">HOLD</button>
         <section class="player activePlayer">
           <div>
-            <h1 class="player_name">PLAYER 1</h1>
+            <h1>
+              <div class="player_name">PLAYER 1</div>
+              <div class="winner_table first_table hidden">WINNER!</div>
+            </h1>
+
             <div class="player_resultScore">0</div>
           </div>
           <div class="player_currentRollScreen">
@@ -37,7 +41,10 @@
 
         <section class="player">
           <div>
-            <h1 class="player_name">PLAYER 2</h1>
+            <h1>
+              <div class="player_name">PLAYER 2</div>
+              <div class="winner_table second_table hidden">WINNER!</div>
+            </h1>
             <div class="player_resultScore">0</div>
           </div>
 

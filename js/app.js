@@ -16,7 +16,7 @@ const playThePigGame = function () {
   let activePlayerIndex = 0;
   let playerResultScores = [0, 0];
   let playerCurrentScores = [0, 0];
-  const winScore = 10;
+  const winScore = 100;
 
   //Event listeners
 

@@ -12,9 +12,11 @@ const playThePigGame = function () {
   const diceDisplay = document.querySelector(".diceDisplay");
   const diceDisplayDots = document.querySelectorAll(".diceDisplay_dot");
   let players = document.querySelectorAll(".player");
+  let playerNames = document.querySelectorAll(".player_name");
   let activePlayerIndex = 0;
   let playerResultScores = [0, 0];
   let playerCurrentScores = [0, 0];
+  const winScore = 10;
 
   //Event listeners
 
@@ -36,6 +38,8 @@ const playThePigGame = function () {
   });
 
   newGameBtn.addEventListener("click", () => {
+    setPlayerNames();
+    showButtons();
     console.log("New Game");
     hideDiceDisplay();
     zeroScores(0, 1);
@@ -50,6 +54,10 @@ const playThePigGame = function () {
     resultScores[activePlayerIndex].textContent =
       playerResultScores[activePlayerIndex];
     zeroCurrentScore(activePlayerIndex);
+    if (playerResultScores[activePlayerIndex] >= winScore) {
+      winTheGame();
+      return;
+    }
     changePlayer();
   });
 
@@ -136,6 +144,28 @@ const playThePigGame = function () {
     for (let diceDisplayDot of diceDisplayDots) {
       diceDisplayDot.classList.add("hidden");
     }
+  }
+
+  function showButtons() {
+    holdBtn.classList.remove("hidden");
+    rollDiceBtn.classList.remove("hidden");
+  }
+
+  function hideButtons() {
+    holdBtn.classList.add("hidden");
+    rollDiceBtn.classList.add("hidden");
+  }
+
+  function setPlayerNames() {
+    playerNames.forEach((name, i) => {
+      name.textContent = `PLAYER ${i + 1}`;
+    });
+  }
+
+  function winTheGame() {
+    hideButtons();
+    hideDiceDisplay();
+    playerNames[activePlayerIndex].textContent = `WINNER!`;
   }
 };
 
